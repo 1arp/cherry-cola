@@ -1,18 +1,10 @@
 require('module-alias/register')
-import express from 'express'
-import apiRoute from '~/routes/api'
+import 'source-map-support/register'
+import app from "./app"
+
 
 const PORT = process.env.PORT || 8080
 
-const app = express()
-
-app.use('/api', apiRoute)
-
-app.use('/',(req,res) => {
-  res.send('hello world')
-})
-
-
-app.listen(PORT,()=>{
-  console.log(`server started on port ${PORT}`)
+app.listen(PORT, () => {
+  console.log(`listening on ${PORT}`)
 })
